@@ -137,9 +137,7 @@ include_weapons() {
     //include_weapon("zombie_cymbal_monkey", /*true,*/::prototype_cymbal_monkey_weighting_func);
     
     // Weapon cabinet only additions	
-    include_weapon("kar98k_bayonet");	//to remove
     include_Weapon("m1921_thompson");
-    include_weapon("mosin_rifle_bayonet");  //to remove
     include_weapon("mosin_rifle_scoped_zombie");
     include_weapon("mp40_bigammo_mp");
     include_weapon("perks_a_cola");
@@ -153,12 +151,14 @@ include_weapons() {
     //include_weapon("knuckle_crack_hands");
 
     // Cut content
+    //include_weapon("kar98k_bayonet");
+    //include_weapon("mosin_rifle_bayonet");
     //include_weapon("springfield_scoped_zombie_upgraded");
     //include_weapon("walther_prototype" );
     //include_weapon("tesla_gun", /*true,*/ );
     // JP weapons, to be removed because don't really fit in Nacht's europe setting
-    include_weapon("type99_lmg"); 
-    include_weapon("zombie_type100_smg");
+    //include_weapon("type99_lmg"); 
+    //include_weapon("zombie_type100_smg");
 
     // Pistols
     include_weapon("colt");     //for Americans
@@ -222,12 +222,12 @@ include_weapons() {
     level.limited_weapons["walther"] = 0;
     level.limited_weapons["tokarev"] = 0;
     level.limited_weapons["kar98k"] = 0;
-    level.limited_weapons["kar98k_bayonet"] = 0;
+    //level.limited_weapons["kar98k_bayonet"] = 0;
     level.limited_weapons["kar98k_scoped_zombie"] = 0;
     level.limited_weapons["m1921_thompson"] = 0;
     //level.limited_weapons["m1carbine"] = 0;
     level.limited_weapons["m1garand"] = 0;
-    level.limited_weapons["mosin_rifle_bayonet"] = 0;
+    //level.limited_weapons["mosin_rifle_bayonet"] = 0;
     level.limited_weapons["mosin_rifle_scoped_zombie"] = 0;
     level.limited_weapons["mp40_bigammo_mp"] = 0;
     level.limited_weapons["perks_a_cola"] = 0;

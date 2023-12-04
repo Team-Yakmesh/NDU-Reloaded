@@ -199,7 +199,7 @@ include_zombie_weapon( weapon_name, in_box, weighting_func )
 
 init_weapons()
 {
-	//Only guns that are wall buy guns require their true cost, every other gun needs to have zero cost to prevent errors and confusion
+	// Only guns that are wall buy guns require their true cost, every other gun needs to have zero cost to prevent errors and confusion
 	// NDU: Reloaded
 	add_zombie_weapon( "m1921_thompson", "", 0 );
 	add_zombie_weapon( "mine_bouncing_betty", "", 0 );
@@ -212,18 +212,20 @@ init_weapons()
 	add_zombie_weapon( "sten_mk5", "", 0 );
 	//add_zombie_weapon( "zombie_cymbal_monkey", &"ZOMBIE_WEAPON_SATCHEL_2000", 2000, 3 );
 	add_zombie_weapon( "zombie_bowie_flourish",	"", 0 );
-	add_zombie_weapon( "zombie_type100_smg", "", 0 );
 
 	// Other
 	//add_zombie_weapon( "death_hands", 						&"PROTOTYPE_ZOMBIE_DEATH_HANDS_10000",		10000 );
 	//add_zombie_weapon( "knuckle_crack_hands", 				&"PROTOTYPE_ZOMBIE_KNUCKLE_CRACK_10000",	10000 );
 
 	// Cut content
+	//add_zombie_weapon( "kar98k_bayonet", "", 0 );
+	//add_zombie_weapon( "mosin_rifle_bayonet", "", 0 );
 	//add_zombie_weapon( "springfield_scoped_zombie_upgraded", "", 0 );
 	//add_zombie_weapon( "tesla_gun", "", 0 );
 	//add_zombie_weapon( "walther_prototype", "", 0 );
 	// JP weapons, to be removed because don't really fit in Nacht's europe setting
-	add_zombie_weapon( "type99_lmg", "", 0 );
+	//add_zombie_weapon( "type99_lmg", "", 0 );
+	//add_zombie_weapon( "zombie_type100_smg", "", 0 );
 	
 	// Pistols
 	add_zombie_weapon( "colt", "", 0 );
@@ -235,9 +237,7 @@ init_weapons()
                                                         		
 	// Bolt Action                                      		
 	add_zombie_weapon( "kar98k", "", 200 );
-	add_zombie_weapon( "kar98k_bayonet", "", 0 );	//to remove
 	add_zombie_weapon( "mosin_rifle", "", 0 );
-	add_zombie_weapon( "mosin_rifle_bayonet", "", 0 );	//to remove
 	add_zombie_weapon( "springfield", "", 0 );
 	add_zombie_weapon( "springfield_bayonet", "", 0 );
 	add_zombie_weapon( "type99_rifle", "", 0 );
@@ -620,15 +620,15 @@ treasure_chest_think(rand)
 		case "tokarev":
 		weaponNameMysteryBox = &"PROTOTYPE_ZOMBIE_WEAPON_TOKAREV";
 		    break;
-		case "type99_lmg":
+		/*case "type99_lmg":
 		weaponNameMysteryBox = &"PROTOTYPE_ZOMBIE_WEAPON_TYPE_99";
-		    break;
+		    break;*/
 		case "zombie_bowie_flourish":
 		weaponNameMysteryBox = &"PROTOTYPE_ZOMBIE_WEAPON_BOWIE";
 		    break;
-		case "zombie_type100_smg":
+		/*case "zombie_type100_smg":
 		weaponNameMysteryBox = &"PROTOTYPE_ZOMBIE_WEAPON_TYPE_100";
-		    break;
+		    break;*/
 	}
 
 	self SetHintString(&"PROTOTYPE_ZOMBIE_TRADE_WEAPONS_BOX", "&&1", weaponNameMysteryBox);
@@ -1155,8 +1155,8 @@ treasure_chest_give_weapon( weapon_string )
 		case "stg44":
 			self thread maps\_sounds::pickup_lmg_sound();
 			break;
-		case "type99_lmg":
-			self thread maps\_sounds::pickup_lmg_sound();
+		/*case "type99_lmg":
+			self thread maps\_sounds::pickup_lmg_sound();*/
 		//smg
 		case "mp40":
 			self thread maps\_sounds::pickup_smg_sound();
@@ -1167,9 +1167,9 @@ treasure_chest_give_weapon( weapon_string )
 		case "ppsh41":
 			self thread maps\_sounds::pickup_smg_sound();
 			break;
-		case "zombie_type100_smg":
+		/*case "zombie_type100_smg":
 			self thread maps\_sounds::pickup_smg_sound();
-			break;
+			break;*/
 		//shotgun
 		case "doublebarrel":
 			self thread maps\_sounds::pickup_shotgun_sound();
@@ -1259,17 +1259,17 @@ weapon_cabinet_think()
 
 	level.cabinetguns = [];
 	level.cabinetguns[0] = "kar98k_scoped_zombie";						// default ndu
-	level.cabinetguns[1] = "kar98k_bayonet";	
-	level.cabinetguns[2] = "m1garand";		
-	level.cabinetguns[3] = "m1921_thompson";						
-	level.cabinetguns[4] = "mosin_rifle_bayonet";
-	level.cabinetguns[5] = "mosin_rifle_scoped_zombie";
-	level.cabinetguns[6] = "mp40_bigammo_mp";
-	level.cabinetguns[7] = "ppsh41_drum";
-	level.cabinetguns[8] = "springfield_scoped_zombie";
-	level.cabinetguns[9] = "sten_mk5";
-	/*level.cabinetguns[10] = "bloodhound";
-	level.cabinetguns[11] = "placeholder";*/
+	level.cabinetguns[1] = "m1garand";		
+	level.cabinetguns[2] = "m1921_thompson";						
+	level.cabinetguns[3] = "mosin_rifle_scoped_zombie";
+	level.cabinetguns[4] = "mp40_bigammo_mp";
+	level.cabinetguns[5] = "ppsh41_drum";
+	level.cabinetguns[6] = "springfield_scoped_zombie";
+	level.cabinetguns[7] = "sten_mk5";
+	/*level.cabinetguns[8] = "bloodhound";
+	level.cabinetguns[9] = "placeholder";*/
+	//level.cabinetguns[10] = "kar98k_bayonet";
+	//level.cabinetguns[11] = "mosin_rifle_bayonet";
 	randomnumb = undefined;
 	weaponNameMysteryCabinet = undefined;
 	
@@ -1405,18 +1405,18 @@ weapon_cabinet_think()
 		case "kar98k_scoped_zombie":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_KAR_98K_SCOPED";
 			break; 
-		case "kar98k_bayonet":
+		/*case "kar98k_bayonet":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_KAR_98K_BAYONET";
-			break;
+			break;*/
 		case "m1garand":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_M1_GARAND";
 			break;  
 		case "m1921_thompson":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_THOMPSON_DRUM";
 			break;
-		case "mosin_rifle_bayonet":
+		/*case "mosin_rifle_bayonet":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_MOSIN_RIFLE_BAYONET";
-			break;
+			break;*/
 		case "mosin_rifle_scoped_zombie":
 		weaponNameMysteryCabinet = &"PROTOTYPE_ZOMBIE_WEAPON_MOSIN_RIFLE_SCOPED";
 			break;
@@ -1720,17 +1720,17 @@ takenweapon(chosenweapon, buyer, weaponNameMysteryCabinet, weaponmodelstruct)
 		case "kar98k_scoped_zombie":
 				player thread maps\_sounds::pickup_sniper_sound();
 			break;
+		/*case "kar98k_bayonet":
+				player thread maps\_sounds::crappy_weapon_sound();
+			break;*/
 		case "mosin_rifle_scoped_zombie":
 				player thread maps\_sounds::pickup_sniper_sound();
 			break;
+		/*case "mosin_rifle_bayonet":
+				player thread maps\_sounds::crappy_weapon_sound();
+			break;*/
 		case "springfield_scoped_zombie":
 				player thread maps\_sounds::pickup_sniper_sound();
-			break;
-		case "kar98k_bayonet":
-				player thread maps\_sounds::crappy_weapon_sound();
-			break;
-		case "mosin_rifle_bayonet":
-				player thread maps\_sounds::crappy_weapon_sound();
 			break;
 	}
 
